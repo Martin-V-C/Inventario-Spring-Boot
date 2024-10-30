@@ -1,4 +1,4 @@
-package com.sensores.inventario.inventario.controller;
+package com.sensores.inventario.inventario.controller.api;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.sensores.inventario.inventario.model.dto.DepositarioDto;
-import com.sensores.inventario.inventario.service.DepositarioService;
+import com.sensores.inventario.inventario.service.apiService.DepositarioService;
 
 
 @RestController

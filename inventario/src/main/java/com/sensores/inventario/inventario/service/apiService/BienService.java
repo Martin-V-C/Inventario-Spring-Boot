@@ -1,4 +1,4 @@
-package com.sensores.inventario.inventario.service;
+package com.sensores.inventario.inventario.service.apiService;
 
 import java.util.List;
 
@@ -16,5 +16,7 @@ public interface BienService {
     void deleteBien(Integer id);
 
     boolean validarExistenciaBien(Integer id);
+
+    BienesDto buscarBienporID(Integer id);
 
 }

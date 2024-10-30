@@ -1,4 +1,4 @@
-package com.sensores.inventario.inventario.service;
+package com.sensores.inventario.inventario.service.apiService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +66,19 @@ public class BienesServiceImp implements BienService {
     @Override
     public boolean validarExistenciaBien(Integer id) {
         return bienesRepository.existsById(id);
+    }
+
+    @Override
+    //Buesca un bien por su ID, regresa un optional o null 
+    //TODO (implementar exepcion)
+    public BienesDto buscarBienporID(Integer id) {
+       Bienes bien = bienesRepository.findById(id).orElse(null);
+        if (bien!=null) {
+            BienesDto bienDTO = BienMapper.Mapper.BienToDto(bien);
+            return bienDTO;
+        } else {
+            return null;
+        }
     }
 
 }

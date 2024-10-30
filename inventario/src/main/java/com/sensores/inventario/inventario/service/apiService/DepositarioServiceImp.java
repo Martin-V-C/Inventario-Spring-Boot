@@ -1,4 +1,4 @@
-package com.sensores.inventario.inventario.service;
+package com.sensores.inventario.inventario.service.apiService;
 
 import java.util.ArrayList;
 import java.util.List;
