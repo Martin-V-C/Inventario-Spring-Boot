@@ -14,7 +14,7 @@ import com.sensores.inventario.inventario.model.entities.Depositario;
 import com.sensores.inventario.inventario.model.entities.Ubicacion;
 import com.sensores.inventario.inventario.model.repository.BienesRepository;
 import com.sensores.inventario.inventario.model.repository.DepositarioRepositary;
-import com.sensores.inventario.inventario.model.repository.UbicaacionesRepository;
+import com.sensores.inventario.inventario.model.repository.UbicacionesRepository;
 
 @Service
 
@@ -27,7 +27,7 @@ public class BienesServiceImp implements BienService {
     DepositarioRepositary depositarioRepositary;
 
     @Autowired
-    UbicaacionesRepository ubicaacionRepository;
+    UbicacionesRepository ubicaacionRepository;
 
     @Override
     public List<BienesDto> bienestotales() {

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.sensores.inventario.inventario.model.dto.UbicacionDto;
 import com.sensores.inventario.inventario.model.dto.UbicacionMapper;
 import com.sensores.inventario.inventario.model.entities.Ubicacion;
-import com.sensores.inventario.inventario.model.repository.UbicaacionesRepository;
+import com.sensores.inventario.inventario.model.repository.UbicacionesRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 public class UbicacionServiceImp implements UbicacionService{
 
     @Autowired
-    UbicaacionesRepository repository;
+    UbicacionesRepository repository;
 
     @Override
     public List<UbicacionDto> getUbicaciones() {

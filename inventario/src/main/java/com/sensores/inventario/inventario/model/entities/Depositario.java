@@ -4,8 +4,11 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 
 
@@ -13,9 +16,11 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "depositario", schema = "inventariodb")
-public class Depositario implements Serializable {
+public class Depositario implements UserDetails {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "iddepositario", nullable = false)
     private Integer id;
 
@@ -25,7 +30,10 @@ public class Depositario implements Serializable {
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;
 
-    @Column(name = "password", nullable = false, length = 100)
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "password", nullable = false, length = 255)
     private String password;
 
     @ManyToOne
@@ -35,5 +43,21 @@ public class Depositario implements Serializable {
 
     @OneToMany(mappedBy = "depositario")
     private List<Bienes> bienes;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(rol.getTipo()));
+    }
+
+    @Override
+    public String getUsername() {
+       return username;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
 
 }

@@ -11,4 +11,6 @@ import java.util.Optional;
 public interface DepositarioRepositary extends JpaRepository<Depositario,Integer> {
 
     Optional<Depositario> findByNombre(String nombre);
+    Optional<Depositario> findByUsername(String username);
+    
 }

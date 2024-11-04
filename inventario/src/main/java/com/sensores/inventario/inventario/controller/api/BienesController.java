@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class BienesController {
 

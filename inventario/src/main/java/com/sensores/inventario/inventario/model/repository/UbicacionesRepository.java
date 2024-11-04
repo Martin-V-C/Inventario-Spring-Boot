@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.sensores.inventario.inventario.model.entities.Ubicacion;
 
 @Repository
-public interface UbicaacionesRepository extends JpaRepository<Ubicacion, Integer> {
+public interface UbicacionesRepository extends JpaRepository<Ubicacion, Integer> {
 
     Optional<Ubicacion> findByLugar(String lugar);
 }
