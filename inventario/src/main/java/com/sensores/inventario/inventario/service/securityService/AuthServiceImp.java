@@ -5,6 +5,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.sensores.inventario.inventario.model.dto.DepositarioDto;
+import com.sensores.inventario.inventario.model.dto.DepositarioMapper;
 import com.sensores.inventario.inventario.model.dto.auth.AuthResponse;
 import com.sensores.inventario.inventario.model.dto.auth.LoginRequest;
 import com.sensores.inventario.inventario.model.dto.auth.RegisterRequest;
@@ -27,7 +29,7 @@ public class AuthServiceImp implements AuthService {
 
     @Override
     public AuthResponse register(RegisterRequest request) {
-        Rol rol = rolRepository.findByTipo("User").orElseThrow(() -> new RuntimeException("El rol no existe"));
+        Rol rol = rolRepository.findByTipo(request.getRol()).orElseThrow(() -> new RuntimeException("El rol no existe"));
 
         var usuario = Depositario.builder()
                 .nombre(request.getNombre())
@@ -51,8 +53,9 @@ public class AuthServiceImp implements AuthService {
                     request.getPassword())
                     );
         var usuario = depRepositary.findByUsername(request.getUsername()).orElseThrow();
+        DepositarioDto dep=DepositarioMapper.Mapper.deptoDto(usuario);
         var jwToken=jwtService.generateToken(usuario);
-        return AuthResponse.builder().token(jwToken).build();
+        return AuthResponse.builder().token(jwToken).dep(dep).build();
     }
 
 }

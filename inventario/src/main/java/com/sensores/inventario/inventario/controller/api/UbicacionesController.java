@@ -10,6 +10,7 @@ import com.sensores.inventario.inventario.model.dto.UbicacionDto;
 import com.sensores.inventario.inventario.service.apiService.UbicacionService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api")
 public class UbicacionesController {
 
@@ -17,7 +18,6 @@ public class UbicacionesController {
     UbicacionService service;
 
     @GetMapping("/ubicaciones")
-    @CrossOrigin(origins = "http://127.0.0.1:5500")
     public List<UbicacionDto> getUbicaciones() {
         return service.getUbicaciones();
     }

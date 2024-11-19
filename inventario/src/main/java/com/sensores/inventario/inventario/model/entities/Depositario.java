@@ -20,7 +20,7 @@ import java.util.List;
 @Table(name = "depositario", schema = "inventariodb")
 public class Depositario implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "iddepositario", nullable = false)
     private Integer id;
 

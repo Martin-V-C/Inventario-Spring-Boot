@@ -1,7 +1,5 @@
 package com.sensores.inventario.inventario.model.dto.auth;
 
-import com.sensores.inventario.inventario.model.entities.Rol;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,5 +14,5 @@ public class RegisterRequest {
     private String nombre;
     private String username;
     private String password;
-    private Rol rol;
+    private String rol;
 }
