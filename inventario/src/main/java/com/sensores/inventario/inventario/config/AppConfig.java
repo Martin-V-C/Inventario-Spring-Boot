@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.sensores.inventario.inventario.model.repository.DepositarioRepositary;
+import com.sensores.inventario.inventario.repository.DepositarioRepositary;
 
 import lombok.RequiredArgsConstructor;
 

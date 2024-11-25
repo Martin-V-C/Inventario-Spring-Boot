@@ -3,10 +3,10 @@ package com.sensores.inventario.inventario.service.apiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sensores.inventario.inventario.model.dto.UbicacionDto;
-import com.sensores.inventario.inventario.model.dto.UbicacionMapper;
 import com.sensores.inventario.inventario.model.entities.Ubicacion;
-import com.sensores.inventario.inventario.model.repository.UbicacionesRepository;
+import com.sensores.inventario.inventario.model.entitiesDtos.UbicacionDto;
+import com.sensores.inventario.inventario.model.entitiesDtos.UbicacionMapper;
+import com.sensores.inventario.inventario.repository.UbicacionesRepository;
 
 import java.util.ArrayList;
 import java.util.List;

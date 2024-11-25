@@ -5,15 +5,15 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.sensores.inventario.inventario.model.dto.DepositarioDto;
-import com.sensores.inventario.inventario.model.dto.DepositarioMapper;
-import com.sensores.inventario.inventario.model.dto.auth.AuthResponse;
-import com.sensores.inventario.inventario.model.dto.auth.LoginRequest;
-import com.sensores.inventario.inventario.model.dto.auth.RegisterRequest;
+import com.sensores.inventario.inventario.model.authDtos.AuthResponse;
+import com.sensores.inventario.inventario.model.authDtos.LoginRequest;
+import com.sensores.inventario.inventario.model.authDtos.RegisterRequest;
 import com.sensores.inventario.inventario.model.entities.Depositario;
 import com.sensores.inventario.inventario.model.entities.Rol;
-import com.sensores.inventario.inventario.model.repository.DepositarioRepositary;
-import com.sensores.inventario.inventario.model.repository.RolRepository;
+import com.sensores.inventario.inventario.model.entitiesDtos.DepositarioDto;
+import com.sensores.inventario.inventario.model.entitiesDtos.DepositarioMapper;
+import com.sensores.inventario.inventario.repository.DepositarioRepositary;
+import com.sensores.inventario.inventario.repository.RolRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,11 +29,14 @@ public class AuthServiceImp implements AuthService {
 
     @Override
     public AuthResponse register(RegisterRequest request) {
+        if (depRepositary.existsByNumeroEco(request.getNumeroEco())) {
+            throw new RuntimeException("El depositario con numero economico " + request.getNumeroEco() + " ya existe");
+        }
         Rol rol = rolRepository.findByTipo(request.getRol()).orElseThrow(() -> new RuntimeException("El rol no existe"));
 
         var usuario = Depositario.builder()
                 .nombre(request.getNombre())
-                .no_economico(request.getNo_economico())
+                .numeroEco(request.getNumeroEco())
                 .username(request.getUsername())
                 .password(encoder.encode(request.getPassword()))
                 .rol(rol)
@@ -42,7 +45,9 @@ public class AuthServiceImp implements AuthService {
         var jwToken = jwtService.generateToken(usuario);
 
         return AuthResponse.builder()
-                .token(jwToken).build();
+                .token(jwToken)
+                .depositario(DepositarioMapper.Mapper.deptoDto(usuario))
+                .build();
     }
 
     @Override
@@ -55,7 +60,7 @@ public class AuthServiceImp implements AuthService {
         var usuario = depRepositary.findByUsername(request.getUsername()).orElseThrow();
         DepositarioDto dep=DepositarioMapper.Mapper.deptoDto(usuario);
         var jwToken=jwtService.generateToken(usuario);
-        return AuthResponse.builder().token(jwToken).dep(dep).build();
+        return AuthResponse.builder().token(jwToken).depositario(dep).build();
     }
 
 }

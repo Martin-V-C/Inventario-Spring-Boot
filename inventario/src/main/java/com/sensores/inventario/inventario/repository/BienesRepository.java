@@ -1,4 +1,4 @@
-package com.sensores.inventario.inventario.model.repository;
+package com.sensores.inventario.inventario.repository;
 
 import java.util.List;
 

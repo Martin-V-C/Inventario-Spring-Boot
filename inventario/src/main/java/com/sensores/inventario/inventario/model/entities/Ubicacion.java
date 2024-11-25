@@ -10,6 +10,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "ubicaciones", schema = "inventariodb")
 public class Ubicacion implements Serializable {
     @Id

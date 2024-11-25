@@ -1,4 +1,4 @@
-package com.sensores.inventario.inventario.model.dto.auth;
+package com.sensores.inventario.inventario.model.authDtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class RegisterRequest {
-    private Integer no_economico;
+    private Integer numeroEco;
     private String nombre;
     private String username;
     private String password;

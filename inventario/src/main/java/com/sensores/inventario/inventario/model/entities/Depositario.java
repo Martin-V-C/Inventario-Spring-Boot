@@ -20,12 +20,12 @@ import java.util.List;
 @Table(name = "depositario", schema = "inventariodb")
 public class Depositario implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "iddepositario", nullable = false)
     private Integer id;
 
-    @Column(name = "no_economico", nullable = false)
-    private Integer no_economico;
+    @Column(name = "numeroEco", nullable = false)
+    private Integer numeroEco;
 
     @Column(name = "nombre", nullable = false, length = 50)
     private String nombre;

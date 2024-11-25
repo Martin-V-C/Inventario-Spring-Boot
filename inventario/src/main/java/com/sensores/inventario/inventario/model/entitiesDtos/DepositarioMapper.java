@@ -1,4 +1,4 @@
-package com.sensores.inventario.inventario.model.dto;
+package com.sensores.inventario.inventario.model.entitiesDtos;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

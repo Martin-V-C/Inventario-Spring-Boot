@@ -1,4 +1,4 @@
-package com.sensores.inventario.inventario.model.dto;
+package com.sensores.inventario.inventario.model.entitiesDtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

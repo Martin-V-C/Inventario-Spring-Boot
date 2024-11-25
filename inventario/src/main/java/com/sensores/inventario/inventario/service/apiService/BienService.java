@@ -2,21 +2,20 @@ package com.sensores.inventario.inventario.service.apiService;
 
 import java.util.List;
 
-import com.sensores.inventario.inventario.model.dto.BienesDto;
-import com.sensores.inventario.inventario.model.dto.Bienflat;
-import com.sensores.inventario.inventario.model.entities.Bienes;
+import com.sensores.inventario.inventario.model.entitiesDtos.BienesDto;
+import com.sensores.inventario.inventario.model.othersDTO.Bienflat;
 
 
 public interface BienService {
 
-    List<BienesDto> bienestotales();
+    List<BienesDto> getListaBienes();
 
-    Bienes saveBien(Bienflat bien);
+    void saveBien(Bienflat bien);
 
     void deleteBien(Integer id);
 
-    boolean validarExistenciaBien(Integer id);
+    BienesDto getBien(Integer id);
 
-    BienesDto buscarBienporID(Integer id);
+    void updateBien(Bienflat bien);
 
 }

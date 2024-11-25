@@ -11,6 +11,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "roles", schema = "inventariodb")
 public class Rol implements Serializable {
     @Id

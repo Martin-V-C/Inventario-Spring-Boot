@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.sensores.inventario.inventario.model.dto.UbicacionDto;
+import com.sensores.inventario.inventario.model.entitiesDtos.UbicacionDto;
 import com.sensores.inventario.inventario.service.apiService.UbicacionService;
 
 @RestController

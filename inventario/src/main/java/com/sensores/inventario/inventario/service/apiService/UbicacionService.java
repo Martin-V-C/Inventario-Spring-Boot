@@ -2,7 +2,7 @@ package com.sensores.inventario.inventario.service.apiService;
 
 import java.util.List;
 
-import com.sensores.inventario.inventario.model.dto.UbicacionDto;
+import com.sensores.inventario.inventario.model.entitiesDtos.UbicacionDto;
 
 public interface UbicacionService {
 

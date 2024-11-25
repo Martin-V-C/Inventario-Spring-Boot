@@ -1,4 +1,4 @@
-package com.sensores.inventario.inventario.model.dto.auth;
+package com.sensores.inventario.inventario.model.othersDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LoginRequest {
-    private String username;
-    private String password;
+public class ApiResponse<T> {
+    private String message;
+    private T data;
+
 }

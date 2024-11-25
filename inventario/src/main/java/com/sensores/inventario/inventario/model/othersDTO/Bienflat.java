@@ -1,19 +1,19 @@
-package com.sensores.inventario.inventario.model.dto;
+package com.sensores.inventario.inventario.model.othersDTO;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BienesDto {
-
+@Builder
+public class Bienflat {
     private Integer id;
     private String descripcion;
     private String estado;
     private String etiqueta;
-    private DepositarioDto depositario;
-    private UbicacionDto ubicacion;
-
+    private String depositario;
+    private String ubicacion;
 }

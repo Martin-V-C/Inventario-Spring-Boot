@@ -5,9 +5,9 @@ import org.springframework.http.ResponseEntity;
 //import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.sensores.inventario.inventario.model.dto.auth.AuthResponse;
-import com.sensores.inventario.inventario.model.dto.auth.LoginRequest;
-import com.sensores.inventario.inventario.model.dto.auth.RegisterRequest;
+import com.sensores.inventario.inventario.model.authDtos.AuthResponse;
+import com.sensores.inventario.inventario.model.authDtos.LoginRequest;
+import com.sensores.inventario.inventario.model.authDtos.RegisterRequest;
 import com.sensores.inventario.inventario.service.securityService.AuthService;
 
 @RestController
