@@ -22,6 +22,15 @@ public class Securityconfig {
     private final jwtFilter filter;
     private final AuthenticationProvider authenticationProvider;
 
+    /**
+     * Configuracion de seguridad para la aplicacion, esta configuracion permite
+     * que los endpoints que comienzan con /auth/** sean accesibles sin necesidad
+     * de autenticacion, y el resto de endpoints requieren autenticacion.
+     * Ademas se desactiva el manejo de sesiones.
+     * @param http Instancia de HttpSecurity
+     * @return Instancia de SecurityFilterChain
+     * @throws Exception Si ocurre un error durante la configuraci n
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.cors(Customizer.withDefaults())

@@ -4,15 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-public class UpdateDepositarioDto {
-    private Integer numeroEco;
-    private String nombre;
-    private String username;
-    private String password;
-    private String rol;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+
+public class ResumenDto {
+    private String etiqueta;
+    private Long cantidad;
 }

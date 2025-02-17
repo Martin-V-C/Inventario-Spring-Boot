@@ -30,6 +30,20 @@ public class jwtFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
 
+    /**
+     * Filtra las peticiones y autentica al usuario con el token en el header
+     * "Authorization" si este comienza con "Bearer ".
+     *
+     * Si el token es valido, este se autentica y se coloca en el contexto de
+     * seguridad. Si no, se regresa la respuesta con un 401.
+     *
+     * @param request  La peticion que se esta procesando.
+     * @param response La respuesta que se esta generando.
+     * @param filterChain El siguiente filtro en la cadena de filtros.
+     * @throws ServletException Si ocurre un error durante el manejo de la
+     *         peticion.
+     * @throws IOException Si ocurre un error durante el manejo de la peticion.
+     */
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
             @NonNull HttpServletResponse response,

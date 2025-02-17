@@ -20,7 +20,6 @@ import java.io.Serializable;
 @Table(name = "bienes", schema = "inventariodb")
 public class Bienes implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idbienes", nullable = false)
     private Integer id;
 

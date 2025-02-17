@@ -17,6 +17,10 @@ public class UbicacionServiceImp implements UbicacionService{
     @Autowired
     UbicacionesRepository repository;
 
+    /**
+     * Obtiene una lista de todas las ubicaciones en la base de datos.
+     * @return una lista de UbicacionDto que representa las ubicaciones
+     */
     @Override
     public List<UbicacionDto> getUbicaciones() {
         List<Ubicacion> ubicaciones = repository.findAll();

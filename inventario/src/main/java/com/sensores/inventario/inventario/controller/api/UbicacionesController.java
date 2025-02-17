@@ -17,6 +17,10 @@ public class UbicacionesController {
     @Autowired
     UbicacionService service;
 
+    /**
+     * Devuelve una lista de ubicaciones en formato de DTO.
+     * @return una lista de UbicacionDto
+     */
     @GetMapping("/ubicaciones")
     public List<UbicacionDto> getUbicaciones() {
         return service.getUbicaciones();

@@ -6,7 +6,8 @@ import com.sensores.inventario.inventario.model.entitiesDtos.BienesDto;
 import com.sensores.inventario.inventario.model.othersDTO.Bienflat;
 
 
-public interface BienService {
+
+public interface BienesService {
 
     List<BienesDto> getListaBienes();
 
@@ -14,8 +15,16 @@ public interface BienService {
 
     void deleteBien(Integer id);
 
-    BienesDto getBien(Integer id);
+    Bienflat getBien(Integer id);
 
     void updateBien(Bienflat bien);
+
+    public List<Object[]> contarBienesPorEtiqueta();
+    
+    public List<Object[]> contarBienesPorUbicacion();
+
+    public List<Object[]> contarBienesPorEstado();
+
+    public List<Object[]> contarBienesPorDepositario();
 
 }

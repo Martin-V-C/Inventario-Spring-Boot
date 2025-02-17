@@ -13,22 +13,28 @@ import com.sensores.inventario.inventario.service.securityService.AuthService;
 @RestController
 @CrossOrigin
 @RequestMapping("/auth")
-// @RequiredArgsConstructor
 public class AuthController {
 
     @Autowired
     AuthService authService;
 
+    /**
+     * Realiza la autenticacion de un depositario.
+     *
+     * @param request objeto que contiene la informacion del depositario a autenticar
+     * @return objeto que contiene el token de autenticacion y la informacion del depositario
+     */
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
         return ResponseEntity.ok(authService.login(request));
     }
 
-    @GetMapping("/prueba")
-    public String getMethodName() {
-        return "End point publico de prueba";
-    }
-
+    /**
+     * Registra un depositario.
+     *
+     * @param request objeto que contiene la informacion del depositario a registrar
+     * @return objeto que contiene el token de autenticacion y la informacion del depositario
+     */
     @PostMapping("/register")
     public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request) {
         return ResponseEntity.ok(authService.register(request));
